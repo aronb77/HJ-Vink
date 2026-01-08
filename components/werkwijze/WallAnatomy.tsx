@@ -21,6 +21,8 @@ export default function WallAnatomy() {
     const finishWidth = useTransform(scrollYProgress, [0.55, 0.7], ["0%", "100%"]);
     const latexOpacity = useTransform(scrollYProgress, [0.8, 0.9], [0, 1]);
 
+    const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
+
     return (
         <section ref={containerRef} className="relative h-[400vh] bg-plaster">
             <div className="sticky top-0 h-screen flex flex-col md:flex-row overflow-hidden">
@@ -93,7 +95,10 @@ export default function WallAnatomy() {
 
                 {/* RIGHT: CONTENT (Scrolling Text Blocks) */}
                 {/* These blocks act as the "spacers" that drive the scroll height */}
-                <div className="w-full md:w-1/2 relative bg-plaster">
+                <motion.div
+                    style={{ y: textY }}
+                    className="w-full md:w-1/2 relative bg-plaster"
+                >
 
                     {/* Step 1: Primer */}
                     <div className="h-screen flex flex-col justify-center px-8 md:px-16 md:pr-24">
@@ -131,7 +136,7 @@ export default function WallAnatomy() {
                         </p>
                     </div>
 
-                </div>
+                </motion.div>
             </div>
         </section>
     );
