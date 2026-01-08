@@ -11,20 +11,29 @@ export default function WallAnatomy() {
     });
 
     // Layer Animations mapped to scroll progress
-    // 0-0.25: Step 1 (Primer)
-    // 0.25-0.5: Step 2 (Stuc)
-    // 0.5-0.75: Step 3 (Finish)
-    // 0.75-1.0: Step 4 (Latex)
-
     const primerOpacity = useTransform(scrollYProgress, [0.1, 0.2], [0, 1]);
     const stucHeight = useTransform(scrollYProgress, [0.3, 0.45], ["0%", "100%"]);
     const finishWidth = useTransform(scrollYProgress, [0.55, 0.7], ["0%", "100%"]);
     const latexOpacity = useTransform(scrollYProgress, [0.8, 0.9], [0, 1]);
 
-    const textY = useTransform(scrollYProgress,
-        [0, 0.2, 0.3, 0.45, 0.55, 0.7, 0.8, 1],
-        ["0%", "0%", "-25%", "-25%", "-50%", "-50%", "-75%", "-75%"]
-    );
+    // Text Animations (Fade In/Out + Slide Up)
+    // Coordinated to switch JUST BEFORE the visual layer starts its main action
+
+    // Step 1: Visible initially, fades out as Step 2 visual approaches (0.25)
+    const text1Opacity = useTransform(scrollYProgress, [0.2, 0.3], [1, 0]);
+    const text1Y = useTransform(scrollYProgress, [0.2, 0.3], ["0%", "-20%"]);
+
+    // Step 2: Enters as Step 1 leaves (0.2), stays until Step 3 approaches (0.5)
+    const text2Opacity = useTransform(scrollYProgress, [0.2, 0.3, 0.45, 0.55], [0, 1, 1, 0]);
+    const text2Y = useTransform(scrollYProgress, [0.2, 0.3, 0.45, 0.55], ["20%", "0%", "0%", "-20%"]);
+
+    // Step 3: Enters as Step 2 leaves (0.5), stays until Step 4 approaches (0.75)
+    const text3Opacity = useTransform(scrollYProgress, [0.45, 0.55, 0.7, 0.8], [0, 1, 1, 0]);
+    const text3Y = useTransform(scrollYProgress, [0.45, 0.55, 0.7, 0.8], ["20%", "0%", "0%", "-20%"]);
+
+    // Step 4: Enters as Step 3 leaves (0.75), stays to end
+    const text4Opacity = useTransform(scrollYProgress, [0.7, 0.8], [0, 1]);
+    const text4Y = useTransform(scrollYProgress, [0.7, 0.8], ["20%", "0%"]);
 
     return (
         <section ref={containerRef} className="relative h-[400vh] bg-plaster">
@@ -96,50 +105,58 @@ export default function WallAnatomy() {
                     </div>
                 </div>
 
-                {/* RIGHT: CONTENT (Scrolling Text Blocks) */}
-                {/* These blocks act as the "spacers" that drive the scroll height */}
-                <motion.div
-                    style={{ y: textY }}
-                    className="w-full md:w-1/2 relative bg-plaster"
-                >
+                {/* RIGHT: CONTENT (Cross-fading Text Blocks) */}
+                <div className="w-full md:w-1/2 relative bg-plaster h-full flex items-center justify-center">
 
                     {/* Step 1: Primer */}
-                    <div className="h-screen flex flex-col justify-center px-8 md:px-16 md:pr-24">
+                    <motion.div
+                        style={{ opacity: text1Opacity, y: text1Y }}
+                        className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 md:pr-24 pointer-events-none"
+                    >
                         <span className="text-gold font-bold text-sm tracking-widest uppercase mb-4">Stap 1</span>
                         <h3 className="text-4xl font-manrope font-bold text-concrete mb-6">De Basis & Hechting</h3>
                         <p className="text-concrete/70 font-inter text-lg leading-relaxed">
                             Alles begint met inspectie. We plakken alles zorgvuldig af en brengen een professioneel hechtmiddel (primer) aan. Dit zorgt ervoor dat het stucwerk muurvast blijft zitten en niet loslaat.
                         </p>
-                    </div>
+                    </motion.div>
 
                     {/* Step 2: Stuc */}
-                    <div className="h-screen flex flex-col justify-center px-8 md:px-16 md:pr-24">
+                    <motion.div
+                        style={{ opacity: text2Opacity, y: text2Y }}
+                        className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 md:pr-24 pointer-events-none"
+                    >
                         <span className="text-gold font-bold text-sm tracking-widest uppercase mb-4">Stap 2</span>
                         <h3 className="text-4xl font-manrope font-bold text-concrete mb-6">Het Uitvlakken</h3>
                         <p className="text-concrete/70 font-inter text-lg leading-relaxed">
                             De dikke laag (raaplaag). Hiermee maken we kromme muren weer kaarsrecht. We zetten de muren "in het lood" zodat plinten en kasten straks naadloos aansluiten.
                         </p>
-                    </div>
+                    </motion.div>
 
                     {/* Step 3: Finish */}
-                    <div className="h-screen flex flex-col justify-center px-8 md:px-16 md:pr-24">
+                    <motion.div
+                        style={{ opacity: text3Opacity, y: text3Y }}
+                        className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 md:pr-24 pointer-events-none"
+                    >
                         <span className="text-gold font-bold text-sm tracking-widest uppercase mb-4">Stap 3</span>
                         <h3 className="text-4xl font-manrope font-bold text-concrete mb-6">Het Messen & Sponzen</h3>
                         <p className="text-concrete/70 font-inter text-lg leading-relaxed">
                             De finish. We pleisteren de laag tot deze spiegelglad is (sausklaar) of werken hem af met een fijne structuur. Dit is waar het echte vakmanschap zichtbaar wordt.
                         </p>
-                    </div>
+                    </motion.div>
 
                     {/* Step 4: Latex */}
-                    <div className="h-screen flex flex-col justify-center px-8 md:px-16 md:pr-24">
+                    <motion.div
+                        style={{ opacity: text4Opacity, y: text4Y }}
+                        className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 md:pr-24 pointer-events-none"
+                    >
                         <span className="text-gold font-bold text-sm tracking-widest uppercase mb-4">Stap 4</span>
                         <h3 className="text-4xl font-manrope font-bold text-concrete mb-6">De Kleur</h3>
                         <p className="text-concrete/70 font-inter text-lg leading-relaxed">
                             Na volledige droging spuiten we de wand in jouw droomkleur met onze airless spuitmachine. Het resultaat is streeploos, egaal en direct helemaal af.
                         </p>
-                    </div>
+                    </motion.div>
 
-                </motion.div>
+                </div>
             </div>
         </section>
     );
