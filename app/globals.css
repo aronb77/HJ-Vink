@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-plaster: #F9F9F7;
+  --color-concrete: #1A1A1A;
+  --color-concrete-dark: #121212;
+  --color-gold: #D4AF37;
+  --color-cement: #8C8C8C;
+
+  --font-manrope: var(--font-manrope), sans-serif;
+  --font-inter: var(--font-inter), sans-serif;
+  --font-playfair: var(--font-playfair), serif;
+}
+
+/* Default Utilities */
+@layer base {
+  body {
+    @apply font-inter bg-plaster text-concrete;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-manrope font-bold;
+  }
+}
