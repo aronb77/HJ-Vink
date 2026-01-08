@@ -23,6 +23,7 @@ export default function Navbar() {
     const links = [
         { name: "Home", href: "/" },
         { name: "Diensten", href: "/diensten" },
+        { name: "Projecten", href: "/projecten" },
         { name: "Werkwijze", href: "/werkwijze" },
         { name: "Contact", href: "/contact" },
     ];
@@ -31,8 +32,8 @@ export default function Navbar() {
         <>
             <motion.header
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-                        ? "bg-plaster/80 backdrop-blur-md border-b border-stone-200/50 py-3 shadow-sm"
-                        : "bg-transparent py-6"
+                    ? "bg-plaster/80 backdrop-blur-md border-b border-stone-200/50 py-3 shadow-sm"
+                    : "bg-transparent py-6"
                     }`}
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
@@ -62,8 +63,8 @@ export default function Navbar() {
                         <button
                             onClick={openWizard}
                             className={`hidden md:flex items-center px-6 py-2.5 rounded-full font-bold transition-all duration-300 ${isScrolled
-                                    ? "bg-gold text-white hover:bg-[#c29d2b] shadow-md"
-                                    : "bg-transparent text-concrete border border-concrete/20 hover:border-gold hover:text-gold"
+                                ? "bg-gold text-white hover:bg-[#c29d2b] shadow-md"
+                                : "bg-transparent text-concrete border border-concrete/20 hover:border-gold hover:text-gold"
                                 }`}
                         >
                             Offerte Aanvragen
