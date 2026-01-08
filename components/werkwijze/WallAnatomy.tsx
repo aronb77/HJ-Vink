@@ -21,7 +21,10 @@ export default function WallAnatomy() {
     const finishWidth = useTransform(scrollYProgress, [0.55, 0.7], ["0%", "100%"]);
     const latexOpacity = useTransform(scrollYProgress, [0.8, 0.9], [0, 1]);
 
-    const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
+    const textY = useTransform(scrollYProgress,
+        [0, 0.2, 0.3, 0.45, 0.55, 0.7, 0.8, 1],
+        ["0%", "0%", "-25%", "-25%", "-50%", "-50%", "-75%", "-75%"]
+    );
 
     return (
         <section ref={containerRef} className="relative h-[400vh] bg-plaster">
