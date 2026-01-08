@@ -1,5 +1,5 @@
 import WallAnatomy from "@/components/werkwijze/WallAnatomy";
-import CleanWorkChecklist from "@/components/werkwijze/CleanWorkChecklist";
+import ProtectionBlueprint from "@/components/werkwijze/ProtectionBlueprint";
 import ReviewsSection from "@/components/home/ReviewsSection";
 
 export default function WerkwijzePage() {
@@ -19,7 +19,7 @@ export default function WerkwijzePage() {
             </div>
 
             <WallAnatomy />
-            <CleanWorkChecklist />
+            <ProtectionBlueprint />
             <ReviewsSection />
         </main>
     );
