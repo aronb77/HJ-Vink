@@ -67,7 +67,7 @@ export default function TermsPage() {
                             Tenzij anders schriftelijk overeengekomen, hanteren wij een betalingstermijn van 14 dagen na factuurdatum.
                         </p>
                         <p>
-                            Bij grotere projecten (bijvoorbeeld > € 2.500,-) kan er in termijnen gefactureerd worden. Hierbij hanteren wij doorgaans een verdeling zoals: 30% bij aanvang van de werkzaamheden en 70% bij oplevering. De details hiervan vindt u terug op uw offerte.
+                            Bij grotere projecten (bijvoorbeeld &gt; € 2.500,-) kan er in termijnen gefactureerd worden. Hierbij hanteren wij doorgaans een verdeling zoals: 30% bij aanvang van de werkzaamheden en 70% bij oplevering. De details hiervan vindt u terug op uw offerte.
                         </p>
 
                         <h2>6. Garantie</h2>
