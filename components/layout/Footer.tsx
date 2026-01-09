@@ -38,11 +38,11 @@ export default function Footer() {
                     <div>
                         <h4 className="text-gold font-bold uppercase text-sm tracking-wider mb-6">Werkgebied</h4>
                         <ul className="space-y-3 font-inter text-sm text-gray-400">
-                            <li><Link href="/" className="hover:text-white transition-colors">Stucadoor Kampen</Link></li>
-                            <li><Link href="/" className="hover:text-white transition-colors">Stucadoor Zwolle</Link></li>
-                            <li><Link href="/" className="hover:text-white transition-colors">Stucadoor Dronten</Link></li>
-                            <li><Link href="/" className="hover:text-white transition-colors">Schilderwerk IJsselmuiden</Link></li>
-                            <li><Link href="/" className="hover:text-white transition-colors">Stucadoor Emmeloord</Link></li>
+                            <li><Link href="/werkgebied/kampen" className="hover:text-white transition-colors">Stucadoor Kampen</Link></li>
+                            <li><Link href="/werkgebied/zwolle" className="hover:text-white transition-colors">Stucadoor Zwolle</Link></li>
+                            <li><Link href="/werkgebied/dronten" className="hover:text-white transition-colors">Stucadoor Dronten</Link></li>
+                            <li><Link href="/werkgebied/ijsselmuiden" className="hover:text-white transition-colors">Stucadoor IJsselmuiden</Link></li>
+                            <li><Link href="/werkgebied/emmeloord" className="hover:text-white transition-colors">Stucadoor Emmeloord</Link></li>
                         </ul>
                     </div>
 

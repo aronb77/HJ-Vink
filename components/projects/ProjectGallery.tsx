@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { urlFor } from "@/lib/sanity/image";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -16,6 +17,7 @@ type Project = {
 
 type ProjectGalleryProps = {
     projects: Project[];
+    cityName?: string;
 };
 
 const CATEGORIES = [
@@ -27,7 +29,7 @@ const CATEGORIES = [
     { label: "Nieuwbouw", value: "nieuwbouw" },
 ];
 
-export default function ProjectGallery({ projects }: ProjectGalleryProps) {
+export default function ProjectGallery({ projects, cityName }: ProjectGalleryProps) {
     const [activeCategory, setActiveCategory] = useState("all");
 
     const filteredProjects = activeCategory === "all"
@@ -76,7 +78,7 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
                 >
                     <AnimatePresence>
                         {filteredProjects.map((project) => (
-                            <ProjectCard key={project.slug} project={project} />
+                            <ProjectCard key={project.slug} project={project} cityName={cityName} />
                         ))}
                     </AnimatePresence>
                 </motion.div>
@@ -96,7 +98,15 @@ export default function ProjectGallery({ projects }: ProjectGalleryProps) {
     );
 }
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project, cityName }: { project: Project; cityName?: string }) {
+    const imageUrl = typeof project.mainImage === 'string'
+        ? project.mainImage
+        : urlFor(project.mainImage).width(800).height(1000).url();
+
+    const altText = cityName
+        ? `${project.category} project in ${cityName} - ${project.title}`
+        : `${project.category} - ${project.title}`;
+
     return (
         <motion.div
             layout
@@ -110,17 +120,15 @@ function ProjectCard({ project }: { project: Project }) {
                 className="group relative block w-full aspect-[4/5] rounded-xl overflow-hidden cursor-pointer"
             >
                 {/* Image */}
-                <div
-                    className="absolute inset-0 transition-transform duration-700 group-hover:scale-110"
-                    style={{
-                        backgroundImage: `url(${typeof project.mainImage === 'string'
-                                ? project.mainImage
-                                : urlFor(project.mainImage).width(800).height(1000).url()
-                            })`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                    }}
-                />
+                <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-110 h-full w-full relative">
+                    <Image
+                        src={imageUrl}
+                        alt={altText}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                </div>
 
                 {/* Overlay (Hidden by default, shown on hover) */}
                 <div className="absolute inset-0 bg-concrete-dark/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6 text-center backdrop-blur-sm">
