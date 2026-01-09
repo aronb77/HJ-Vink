@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Star, User } from "lucide-react";
+import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
 import { Review } from "@/lib/reviews/allReviews";
 
@@ -55,14 +56,17 @@ function ReviewCard({ review }: { review: Review }) {
         >
             <div className="flex items-center gap-4 mb-4">
                 {/* Avatar */}
-                <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
                     {review.profile_photo_url ? (
                         // eslint-disable-next-line @next/next/no-img-element
-                        <img
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <Image
                             src={review.profile_photo_url}
                             alt={review.author_name}
-                            className="w-full h-full object-cover"
+                            fill
+                            className="object-cover"
                             referrerPolicy="no-referrer"
+                            sizes="48px"
                         />
                     ) : (
                         <div className="w-full h-full flex items-center justify-center text-gray-400">
@@ -100,7 +104,14 @@ function ReviewCard({ review }: { review: Review }) {
             <div className="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center text-xs text-gray-400 font-inter">
                 <span>{review.relative_time_description}</span>
                 <span className="flex items-center gap-1">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" className="w-4 h-4" />
+                    <div className="relative w-4 h-4">
+                        <Image
+                            src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+                            alt="Google"
+                            fill
+                            className="object-contain"
+                        />
+                    </div>
                     Google
                 </span>
             </div>

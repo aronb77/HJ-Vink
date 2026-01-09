@@ -104,11 +104,12 @@ function ServiceCard({ item }: { item: ServiceItem }) {
                 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
             >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
             </motion.div>
 

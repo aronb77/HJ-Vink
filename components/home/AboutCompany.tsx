@@ -38,11 +38,12 @@ export default function AboutCompany() {
                   Using Unsplash for hands/craftsmanship detail. 
                   "Hands plastering wall" or similar.
                */}
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img
+                            <Image
                                 src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80"
                                 alt="Vakmanschap in detail"
-                                className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
+                                fill
+                                className="object-cover hover:scale-105 transition-transform duration-700"
+                                sizes="(max-width: 768px) 100vw, 50vw"
                             />
 
                             {/* Floating Badge */}

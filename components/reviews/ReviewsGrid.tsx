@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, User } from "lucide-react";
+import Image from "next/image";
 import { Review } from "@/lib/reviews/allReviews";
 
 export default function ReviewsGrid({ reviews }: { reviews: Review[] }) {
@@ -33,14 +34,16 @@ export default function ReviewsGrid({ reviews }: { reviews: Review[] }) {
                             {/* Header: Avatar, Name, Date */}
                             <div className="flex items-start justify-between mb-4">
                                 <div className="flex items-center gap-3">
-                                    <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
+                                    <div className="relative w-10 h-10 rounded-full overflow-hidden bg-gray-100 flex-shrink-0">
                                         {review.profile_photo_url ? (
                                             // eslint-disable-next-line @next/next/no-img-element
-                                            <img
+                                            <Image
                                                 src={review.profile_photo_url}
                                                 alt={review.author_name}
-                                                className="w-full h-full object-cover"
+                                                fill
+                                                className="object-cover"
                                                 referrerPolicy="no-referrer"
+                                                sizes="40px"
                                             />
                                         ) : (
                                             <div className="w-full h-full flex items-center justify-center text-gray-400">
@@ -53,7 +56,13 @@ export default function ReviewsGrid({ reviews }: { reviews: Review[] }) {
                                         <div className="flex items-center gap-1 text-xs text-gray-400">
                                             <span>{review.relative_time_description}</span>
                                             <span>•</span>
-                                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="G" className="w-3 h-3 grayscale opacity-50" />
+                                            <Image
+                                                src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+                                                alt="G"
+                                                width={12}
+                                                height={12}
+                                                className="w-3 h-3 grayscale opacity-50"
+                                            />
                                         </div>
                                     </div>
                                 </div>
