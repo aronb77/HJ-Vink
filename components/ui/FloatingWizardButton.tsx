@@ -1,3 +1,5 @@
+"use client";
+
 import useWizardStore from "@/store/wizardStore";
 import { AnimatePresence, motion } from "framer-motion";
 import { Calculator } from "lucide-react";
