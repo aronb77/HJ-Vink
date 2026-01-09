@@ -47,7 +47,15 @@ export default function RouteVisualizer({ cityName, travelTime, coordinates }: R
                                             ? "Even de brug over en we zijn er. Voor IJsselmuiden rekenen wij nooit voorrijdkosten."
                                             : cityName.toLowerCase() === 'emmeloord'
                                                 ? "De N50 is onze vaste route. Wij zijn in een kwartiertje bij de Poldertoren. Geen gedoe met lange reistijden."
-                                                : `Wij zijn gevestigd in Kampen, wat betekent dat we voor projecten in ${cityName} letterlijk om de hoek zitten.`
+                                                : cityName.toLowerCase() === 'hattem'
+                                                    ? "Via de nieuwe IJsselbrug zijn we binnen enkele minuten in Hattem. Wij rekenen geen reiskosten."
+                                                    : cityName.toLowerCase() === 'urk'
+                                                        ? "Via de Domineesweg (N352) zijn we zo op de bult. Wij rekenen geen reiskosten en zijn flexibel in de planning."
+                                                        : cityName.toLowerCase() === 'genemuiden'
+                                                            ? "Via de Kamperzeedijk zijn we in een kwartiertje bij u. Wij rekenen voor Genemuiden uiteraard geen reiskosten."
+                                                            : cityName.toLowerCase() === 'wezep'
+                                                                ? "De N50 is onze vaste route. Vanaf Kampen zijn we in 10 minuutjes in Wezep. U betaalt bij ons dus geen reiskosten, maar investeert puur in kwaliteit."
+                                                                : `Wij zijn gevestigd in Kampen, wat betekent dat we voor projecten in ${cityName} letterlijk om de hoek zitten.`
                                 }
                             </p>
 

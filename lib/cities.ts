@@ -48,6 +48,38 @@ export const CITY_DATA: Record<string, CityData> = {
         uspText: "De Noordoostpolder kent een echte no-nonsense mentaliteit, net als wij. Wij zijn veel actief in de nieuwbouw van Emmelhage met dunpleister en spuitwerk.",
         coordinates: { x: 30, y: 20 }, // Emmeloord ligt ten noorden van Kampen
     },
+    hattem: {
+        slug: "hattem",
+        name: "Hattem",
+        travelTime: "10 minuten", // Via de N50/Brug
+        neighborhoods: "De binnenstad, villawijken in de bossen en 't Veen",
+        uspText: "Hattem vraagt om precisie. Of het nu gaat om een monumentaal pand in de stad of een moderne villa in de bossen: wij leveren de high-end afwerking die uw woning verdient.",
+        coordinates: { x: 40, y: 55 }, // Ten zuidoosten van Kampen
+    },
+    urk: {
+        slug: "urk",
+        name: "Urk",
+        travelTime: "20 minuten", // Via N50 en Domineesweg
+        neighborhoods: "de Zeeheldenwijk, Oranjewijk, De Staart en de oude Bult",
+        uspText: "Op Urk telt maar één ding: kwaliteit. Wij begrijpen dat u een vakman zoekt die zijn woord houdt en meters kan maken in uw (nieuwe) woning.",
+        coordinates: { x: 10, y: 30 },
+    },
+    genemuiden: {
+        slug: "genemuiden",
+        name: "Genemuiden",
+        travelTime: "15 minuten", // Via de Kamperzeedijk/N760
+        neighborhoods: "Tag West, De Greente, het Industriegebied en de Binnenstad",
+        uspText: "Genemuidenaren houden van doorpakken. Wij ook. Met onze spuittechnieken maken we uw nieuwbouwwoning in Tag West of renovatieproject in de binnenstad in recordtijd strak.",
+        coordinates: { x: 35, y: 35 },
+    },
+    wezep: {
+        slug: "wezep",
+        name: "Wezep",
+        travelTime: "10 minuten", // Via de N50
+        neighborhoods: "Wezep-Noord, Hattemerbroek, de Stationsomgeving en het Centrum",
+        uspText: "Wezep ligt strategisch perfect. Wij helpen veel nieuwe bewoners in Wezep om gedateerde woningen weer helemaal strak en modern te maken.",
+        coordinates: { x: 45, y: 60 },
+    },
 };
 
 export const getCityData = (slug: string) => CITY_DATA[slug.toLowerCase()] || null;

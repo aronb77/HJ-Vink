@@ -38,6 +38,7 @@ const SERVICE_OPTIONS = [
 
 export default function WizardModal() {
     const { isOpen, closeWizard, step, setStep, selection, setService, setType, setArea, setContact, resetWizard } = useWizardStore();
+    const [agreed, setAgreed] = useState(false);
 
     useEffect(() => {
         if (isOpen) {
@@ -248,6 +249,20 @@ export default function WizardModal() {
                                                     Opmerkingen (Optioneel)
                                                 </label>
                                             </div>
+                                            <div className="flex items-start gap-3 pt-4 border-t border-concrete/5 mt-4">
+                                                <div className="relative flex items-center h-6">
+                                                    <input
+                                                        id="wizard-agreement"
+                                                        type="checkbox"
+                                                        className="w-5 h-5 border-2 border-concrete/20 rounded text-gold focus:ring-gold focus:ring-offset-0 bg-transparent cursor-pointer"
+                                                        checked={agreed}
+                                                        onChange={(e) => setAgreed(e.target.checked)}
+                                                    />
+                                                </div>
+                                                <label htmlFor="wizard-agreement" className="text-sm text-concrete/70 leading-relaxed cursor-pointer select-none">
+                                                    Ik ga akkoord met de <a href="/privacy" target="_blank" className="underline hover:text-gold">privacyverklaring</a> en <a href="/voorwaarden" target="_blank" className="underline hover:text-gold">algemene voorwaarden</a>.
+                                                </label>
+                                            </div>
                                         </div>
                                     </motion.div>
                                 )}
@@ -288,7 +303,7 @@ export default function WizardModal() {
 
                                 <button
                                     onClick={handleNext}
-                                    disabled={step === 1 && !selection.service}
+                                    disabled={(step === 1 && !selection.service) || (step === 3 && !agreed)}
                                     className="bg-concrete hover:bg-concrete-dark text-white px-8 py-4 rounded-full font-bold flex items-center gap-3 transition-all disabled:opacity-50 disabled:cursor-not-allowed group shadow-lg"
                                 >
                                     {step === 3 ? "Aanvraag Versturen" : "Volgende Stap"}

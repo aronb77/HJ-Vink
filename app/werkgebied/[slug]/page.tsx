@@ -134,7 +134,15 @@ export default async function LocationPage({ params }: Props) {
                                     ? 'Stukadoor in IJsselmuiden? Uw overburen staan klaar.'
                                     : city.slug === 'emmeloord'
                                         ? 'Stukadoor in Emmeloord? Snel via de N50.'
-                                        : `De standaard voor stucwerk in ${city.name}.`}
+                                        : city.slug === 'hattem'
+                                            ? 'Stukadoor in Hattem? Voor exclusieve wandafwerking.'
+                                            : city.slug === 'urk'
+                                                ? 'Stukadoor op Urk? Kwaliteit zonder compromis.'
+                                                : city.slug === 'genemuiden'
+                                                    ? 'Stukadoor in Genemuiden? Uw buren uit Kampen.'
+                                                    : city.slug === 'wezep'
+                                                        ? 'Stukadoor in Wezep? Binnen 10 minuten bij u.'
+                                                        : `De standaard voor stucwerk in ${city.name}.`}
                     </h1>
 
                     <p className="text-lg text-gray-300 mb-10 max-w-lg leading-relaxed">
@@ -146,7 +154,15 @@ export default async function LocationPage({ params }: Props) {
                                     ? "H.J. Vink Afbouw steekt graag de stadsbrug over. Of u nu woont op de Sonnenberg of aan de dijk: wij zijn binnen 5 minuten bij u. Uiteraard zonder voorrijdkosten."
                                     : city.slug === 'emmeloord'
                                         ? "H.J. Vink Afbouw bedient de hele Noordoostpolder. Vanuit Kampen rijden we via de N50 in 15 minuten naar wijken zoals Emmelhage. Vakwerk zonder poespas."
-                                        : `Op zoek naar vakmanschap? H.J. Vink Afbouw is uw lokale specialist. Vanuit Kampen zijn we in ${city.travelTime} op locatie in wijken zoals ${city.neighborhoods}.`}
+                                        : city.slug === 'hattem'
+                                            ? "In de Hanzestad Hattem leveren wij vakwerk dat past bij de allure van uw woning. Van strak pleisterwerk in monumenten tot betonlook in moderne villa's."
+                                            : city.slug === 'urk'
+                                                ? "Voor uw woning op Urk zoekt u een vakman die van aanpakken weet. H.J. Vink Afbouw levert strak stucwerk en exclusieve wandafwerking. Wij komen onze afspraken na."
+                                                : city.slug === 'genemuiden'
+                                                    ? "H.J. Vink Afbouw is kind aan huis in Genemuiden. Van de nieuwbouw in Tag West tot renovaties aan de Langestraat: wij zijn binnen een kwartier ter plaatse. Geen voorrijdkosten."
+                                                    : city.slug === 'wezep'
+                                                        ? "Woont u in Wezep of Hattemerbroek? H.J. Vink Afbouw is via de N50 razendsnel ter plaatse. Wij transformeren gedateerde muren naar strakke, moderne wanden. Zonder voorrijdkosten."
+                                                        : `Op zoek naar vakmanschap? H.J. Vink Afbouw is uw lokale specialist. Vanuit Kampen zijn we in ${city.travelTime} op locatie in wijken zoals ${city.neighborhoods}.`}
                     </p>
 
                     <HeroCTA cityName={city.name} />
@@ -181,7 +197,7 @@ export default async function LocationPage({ params }: Props) {
                             </div>
                             <div>
                                 <span className="block font-bold">
-                                    {city.slug === 'kampen' ? 'Gevestigd in Kampen' : city.slug === 'dronten' ? 'Binnen 20 min ter plaatse' : city.slug === 'ijsselmuiden' ? 'Direct over de brug' : city.slug === 'emmeloord' ? 'Direct aan de N50' : `Binnen ${city.travelTime}`}
+                                    {city.slug === 'kampen' ? 'Gevestigd in Kampen' : city.slug === 'dronten' ? 'Binnen 20 min ter plaatse' : city.slug === 'ijsselmuiden' ? 'Direct over de brug' : city.slug === 'emmeloord' ? 'Direct aan de N50' : city.slug === 'hattem' ? 'Historie & Luxe' : city.slug === 'urk' ? 'Afspraak = Afspraak' : city.slug === 'genemuiden' ? 'Expert in Tag West' : city.slug === 'wezep' ? 'Direct via de N50' : `Binnen ${city.travelTime}`}
                                 </span>
                                 <span className="text-sm text-gray-400">{city.slug === 'kampen' ? 'Geen reistijd' : 'ter plaatse'}</span>
                             </div>
@@ -191,7 +207,7 @@ export default async function LocationPage({ params }: Props) {
                                 <MapPin className="w-6 h-6" />
                             </div>
                             <div>
-                                <span className="block font-bold">{city.slug === 'dronten' ? 'Specialist in Dunpleister' : city.slug === 'ijsselmuiden' ? 'Bekend op de Sonnenberg' : city.slug === 'emmeloord' ? 'Veel werk in Emmelhage' : '20+ Jaar ervaring'}</span>
+                                <span className="block font-bold">{city.slug === 'dronten' ? 'Specialist in Dunpleister' : city.slug === 'ijsselmuiden' ? 'Bekend op de Sonnenberg' : city.slug === 'emmeloord' ? 'Veel werk in Emmelhage' : city.slug === 'hattem' ? 'Oog voor detail' : city.slug === 'urk' ? 'Grote capaciteit' : city.slug === 'genemuiden' ? 'Spuitwerk Specialist' : city.slug === 'wezep' ? 'Renovatie Specialist' : '20+ Jaar ervaring'}</span>
                                 {city.slug === 'kampen'
                                     ? <span className="text-sm text-gray-400">Een begrip in de regio</span>
                                     : city.slug === 'dronten'
@@ -200,7 +216,15 @@ export default async function LocationPage({ params }: Props) {
                                             ? <span className="text-sm text-gray-400">Nieuwbouw expertise</span>
                                             : city.slug === 'emmeloord'
                                                 ? <span className="text-sm text-gray-400">Nieuwbouw Emmelhage</span>
-                                                : <span className="text-sm text-gray-400">in de regio</span>
+                                                : city.slug === 'hattem'
+                                                    ? <span className="text-sm text-gray-400">Exclusieve afwerking</span>
+                                                    : city.slug === 'urk'
+                                                        ? <span className="text-sm text-gray-400">Grote capaciteit</span>
+                                                        : city.slug === 'genemuiden'
+                                                            ? <span className="text-sm text-gray-400">Snel en efficiënt</span>
+                                                            : city.slug === 'wezep'
+                                                                ? <span className="text-sm text-gray-400">Stofvrij werken</span>
+                                                                : <span className="text-sm text-gray-400">in de regio</span>
                                 }
                             </div>
                         </div>
@@ -210,10 +234,10 @@ export default async function LocationPage({ params }: Props) {
                             </div>
                             <div>
                                 <span className="block font-bold">
-                                    {city.slug === 'kampen' ? 'Showroom bezoek' : city.slug === 'dronten' ? 'Ook voor grote metrages' : city.slug === 'ijsselmuiden' ? 'Snel schakelen' : city.slug === 'emmeloord' ? 'Polder mentaliteit' : 'Geen voorrijdkosten'}
+                                    {city.slug === 'kampen' ? 'Showroom bezoek' : city.slug === 'dronten' ? 'Ook voor grote metrages' : city.slug === 'ijsselmuiden' ? 'Snel schakelen' : city.slug === 'emmeloord' ? 'Polder mentaliteit' : city.slug === 'hattem' ? 'Luxe afwerking' : city.slug === 'urk' ? 'Afspraak = Afspraak' : city.slug === 'genemuiden' ? 'Korte lijnen' : city.slug === 'wezep' ? 'Stofvrij werken' : 'Geen voorrijdkosten'}
                                 </span>
                                 <span className="text-sm text-gray-400">
-                                    {city.slug === 'kampen' ? 'Mogelijk op afspraak' : city.slug === 'dronten' ? 'Efficiënt met airless' : city.slug === 'ijsselmuiden' ? 'Vakman uit de buurt' : city.slug === 'emmeloord' ? 'Afspraak = afspraak' : `in ${city.name}`}
+                                    {city.slug === 'kampen' ? 'Mogelijk op afspraak' : city.slug === 'dronten' ? 'Efficiënt met airless' : city.slug === 'ijsselmuiden' ? 'Vakman uit de buurt' : city.slug === 'emmeloord' ? 'Afspraak = afspraak' : city.slug === 'hattem' ? 'Hoogwaardige materialen' : city.slug === 'urk' ? 'Al 20 jaar vakmanschap' : city.slug === 'genemuiden' ? 'Stofarm werken' : city.slug === 'wezep' ? 'Stofvrij werken' : `in ${city.name}`}
                                 </span>
                             </div>
                         </div>
@@ -273,7 +297,7 @@ export default async function LocationPage({ params }: Props) {
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold text-concrete mb-2">
-                                            {city.slug === 'dronten' ? 'Nieuwbouw Specialisme' : city.slug === 'ijsselmuiden' ? 'Nieuwbouw Expertise' : city.slug === 'emmeloord' ? 'Project Emmelhage' : 'Lokale Kennis'}
+                                            {city.slug === 'dronten' ? 'Nieuwbouw Specialisme' : city.slug === 'ijsselmuiden' ? 'Nieuwbouw Expertise' : city.slug === 'emmeloord' ? 'Project Emmelhage' : city.slug === 'hattem' ? 'Oog voor detail' : city.slug === 'urk' ? 'Grote woningen' : city.slug === 'genemuiden' ? 'Bouwt u in Tag West?' : city.slug === 'wezep' ? 'Gedateerde woning?' : 'Lokale Kennis'}
                                         </h3>
                                         <p className="text-concrete/70 leading-relaxed">
                                             {city.slug === 'kampen'
@@ -284,7 +308,15 @@ export default async function LocationPage({ params }: Props) {
                                                         ? "Gaat u wonen in de nieuwbouw op de Sonnenberg? Wij zijn gespecialiseerd in het behangklaar maken en dunpleisteren van deze nieuwbouwwoningen. Strakker kan niet."
                                                         : city.slug === 'emmeloord'
                                                             ? "Heeft u een woning gekocht in Emmelhage? De strakke betonwanden in deze fase werken wij razendsnel af met dunpleister. Goedkoper dan traditioneel stucen, en spiegelglad."
-                                                            : city.uspText}
+                                                            : city.slug === 'hattem'
+                                                                ? "Renoveren in Hattem vereist respect voor het pand. Wij zorgen dat scheve muren kaarsrecht worden zonder de authentieke details te verliezen."
+                                                                : city.slug === 'urk'
+                                                                    ? "Bouwt u in de Zeeheldenwijk of op de Schokkerhoek? Urker huizen zijn vaak ruim opgezet. Met onze Airless Spuittechniek en Dunpleister maken wij honderden meters per dag spiegelglad. Sneller klaar, minder overlast, perfect resultaat."
+                                                                    : city.slug === 'genemuiden'
+                                                                        ? "De nieuwbouwwoningen in Tag West worden vaak opgeleverd met behangklare muren. Wij maken deze spiegelglad met Dunpleister. Dit is sneller, voordeliger en strakker dan traditioneel stucwerk. Perfect voor de moderne inrichting die we veel zien in Genemuiden."
+                                                                        : city.slug === 'wezep'
+                                                                            ? "Veel woningen in Wezep hebben nog wandafwerking uit de jaren '80 of '90 (zoals spachtelputz of granol). Wij zijn specialist in het gladstucen van deze wanden. Wij maken uw woning in Wezep weer helemaal van deze tijd: strak, licht en ruimtelijk."
+                                                                            : city.uspText}
                                         </p>
                                     </div>
                                 </div>
@@ -296,7 +328,7 @@ export default async function LocationPage({ params }: Props) {
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold text-concrete mb-2">
-                                            {city.slug === 'kampen' ? 'Groot Netwerk' : city.slug === 'dronten' ? 'Grote Oppervlaktes' : city.slug === 'ijsselmuiden' ? 'Oude Dorp' : city.slug === 'emmeloord' ? 'Renovatie' : 'Snelheid & Netheid'}
+                                            {city.slug === 'kampen' ? 'Groot Netwerk' : city.slug === 'dronten' ? 'Grote Oppervlaktes' : city.slug === 'ijsselmuiden' ? 'Oude Dorp' : city.slug === 'emmeloord' ? 'Renovatie' : city.slug === 'hattem' ? 'Luxe Opties' : city.slug === 'urk' ? 'Luxe afwerking' : city.slug === 'genemuiden' ? 'Niet lullen, maar poetsen' : city.slug === 'wezep' ? 'Wezep-Noord' : 'Snelheid & Netheid'}
                                         </h3>
                                         <p className="text-concrete/70 leading-relaxed">
                                             {city.slug === 'kampen'
@@ -307,7 +339,15 @@ export default async function LocationPage({ params }: Props) {
                                                         ? "Ook voor renovaties aan de Groenendijk of in de oude dorpskern draaien we onze hand niet om. Wij maken kromme muren weer recht."
                                                         : city.slug === 'emmeloord'
                                                             ? "Ook voor de oudere woningen in De Erven of rondom de Poldertoren draaien wij onze hand niet om. Wij maken verouderde muren weer strak en sausklaar."
-                                                            : "Omdat we om de hoek zitten, kunnen we snel schakelen. We werken stofarm en laten alles netjes achter."}
+                                                            : city.slug === 'hattem'
+                                                                ? "Op zoek naar iets bijzonders? Wij zijn gespecialiseerd in decoratieve technieken zoals betonlook (ciré) en exclusief spuitwerk."
+                                                                : city.slug === 'urk'
+                                                                    ? "Op Urk mag het er mooi uitzien. Wij zijn gespecialiseerd in Beton Cire en exclusief stucwerk voor uw badkamer, keuken of woonvloer. Een robuuste, naadloze uitstraling die perfect past bij een modern interieur."
+                                                                    : city.slug === 'genemuiden'
+                                                                        ? "Genemuiden is een stad van aanpakkers. Daar passen wij perfect tussen. Wij houden van korte lijnen, duidelijke offertes en hard werken. U zorgt voor de koffie, wij zorgen dat de muren strak worden."
+                                                                        : city.slug === 'wezep'
+                                                                            ? "Gaat u bouwen in de uitbreiding Wezep-Noord? Voor nieuwbouw adviseren wij Dunpleister en Airless Latex Spuiten. Dit is de snelste en meest voordelige weg naar spiegelgladde muren in uw nieuwe huis."
+                                                                            : "Omdat we om de hoek zitten, kunnen we snel schakelen. We werken stofarm en laten alles netjes achter."}
                                         </p>
                                     </div>
                                 </div>
@@ -319,7 +359,7 @@ export default async function LocationPage({ params }: Props) {
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold text-concrete mb-2">
-                                            {city.slug === 'dronten' ? 'De Buurman' : city.slug === 'ijsselmuiden' ? 'Lokaal' : city.slug === 'emmeloord' ? 'De Klik' : 'Totaalafbouw'}
+                                            {city.slug === 'dronten' ? 'De Buurman' : city.slug === 'ijsselmuiden' ? 'Lokaal' : city.slug === 'emmeloord' ? 'De Klik' : city.slug === 'urk' ? 'Harde werkers' : city.slug === 'genemuiden' ? 'Renovatie & Bedrijfspanden' : city.slug === 'wezep' ? 'Bekend in de buurt' : 'Totaalafbouw'}
                                         </h3>
                                         <p className="text-concrete/70 leading-relaxed">
                                             {city.slug === 'dronten'
@@ -328,7 +368,13 @@ export default async function LocationPage({ params }: Props) {
                                                     ? "Geen aannemer van ver die u nooit meer ziet, maar een vakman uit de buurt waar u makkelijk even mee schakelt."
                                                     : city.slug === 'emmeloord'
                                                         ? "Wij houden van de poldermentaliteit: niet lullen maar poetsen. U wilt gewoon strak werk voor een eerlijke prijs, en dat is precies wat wij leveren."
-                                                        : "Van raapwerk tot de laatste laag latex spuitwerk. Eén aanspreekpunt voor uw hele woning."}
+                                                        : city.slug === 'urk'
+                                                            ? "Wij komen uit Kampen en spreken dezelfde taal: niet lullen maar poetsen. Als wij zeggen dat we er maandag staan, dan staan we er. Vraag gerust rond in de buurt; de kans is groot dat wij al bij uw buren of familie hebben gewerkt."
+                                                            : city.slug === 'genemuiden'
+                                                                ? "Naast woningen stucen we ook regelmatig kantoren en showrooms op het industrieterrein. Een strakke entree is immers het visitekaartje van uw bedrijf."
+                                                                : city.slug === 'wezep'
+                                                                    ? "Wij werken in de hele regio Kampen-Zwolle-Wezep. Wij kennen de types woningen in Wezep, van de bungalows in het bos tot de rijtjeshuizen bij het station. Wij weten precies welke aanpak uw muur nodig heeft."
+                                                                    : "Van raapwerk tot de laatste laag latex spuitwerk. Eén aanspreekpunt voor uw hele woning."}
                                         </p>
                                     </div>
                                 </div>

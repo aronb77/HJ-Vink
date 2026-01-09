@@ -5,7 +5,7 @@ import { Send } from "lucide-react";
 import { useState } from "react";
 
 export default function ContactForm() {
-    const [formState, setFormState] = useState({ name: "", contact: "", subject: "offer", message: "" });
+    const [formState, setFormState] = useState({ name: "", contact: "", subject: "offer", message: "", agreed: false });
     const [focused, setFocused] = useState<string | null>(null);
 
     return (
@@ -73,10 +73,29 @@ export default function ContactForm() {
                     />
                 </div>
 
+                {/* Agreement Checkbox */}
+                <div className="flex items-start gap-3 pt-2">
+                    <div className="relative flex items-center h-6">
+                        <input
+                            id="agreement"
+                            type="checkbox"
+                            className="w-5 h-5 border-2 border-concrete/20 rounded text-gold focus:ring-gold focus:ring-offset-0 bg-transparent cursor-pointer"
+                            checked={formState.agreed}
+                            onChange={(e) => setFormState({ ...formState, agreed: e.target.checked })}
+                        />
+                    </div>
+                    <label htmlFor="agreement" className="text-sm text-concrete/70 leading-relaxed cursor-pointer select-none">
+                        Ik ga akkoord met de <a href="/privacy" target="_blank" className="underline hover:text-gold">privacyverklaring</a> en <a href="/voorwaarden" target="_blank" className="underline hover:text-gold">algemene voorwaarden</a>.
+                    </label>
+                </div>
+
             </div>
 
             {/* Submit Button */}
-            <button className="group flex items-center gap-4 bg-concrete text-white px-8 py-4 rounded-full font-bold hover:bg-concrete-dark transition-all">
+            <button
+                disabled={!formState.agreed}
+                className="group flex items-center gap-4 bg-concrete text-white px-8 py-4 rounded-full font-bold hover:bg-concrete-dark transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            >
                 <span>Verstuur Bericht</span>
                 <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </button>
