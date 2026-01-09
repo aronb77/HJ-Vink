@@ -3,7 +3,6 @@ import ServicesTiltGrid from "@/components/home/ServicesTiltGrid";
 import AboutCompany from "@/components/home/AboutCompany";
 import ReviewsSection from "@/components/home/ReviewsSection";
 import ProjectShowcase from "@/components/home/ProjectShowcase";
-import ReadyToStart from "@/components/home/ReadyToStart";
 
 export default function Home() {
   return (
@@ -13,7 +12,6 @@ export default function Home() {
       <AboutCompany />
       <ProjectsShowcaseBoundary />
       <ReviewsSection />
-      <ReadyToStart />
     </main>
   );
 }

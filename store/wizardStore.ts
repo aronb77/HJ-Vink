@@ -23,6 +23,7 @@ interface ContactDetails {
 interface WizardState {
     isOpen: boolean;
     isDocked: boolean;
+    isFooterCtaVisible: boolean;
     step: number;
     selection: {
         service: ServiceType;
@@ -33,6 +34,7 @@ interface WizardState {
     openWizard: () => void;
     closeWizard: () => void;
     setDocked: (docked: boolean) => void;
+    setFooterCtaVisible: (visible: boolean) => void;
     setStep: (step: number) => void;
     setService: (service: ServiceType) => void;
     setType: (type: ProjectType) => void;
@@ -44,6 +46,7 @@ interface WizardState {
 const useWizardStore = create<WizardState>((set) => ({
     isOpen: false,
     isDocked: false,
+    isFooterCtaVisible: false,
     step: 1,
     selection: {
         service: null,
@@ -59,6 +62,7 @@ const useWizardStore = create<WizardState>((set) => ({
     openWizard: () => set({ isOpen: true }),
     closeWizard: () => set({ isOpen: false }),
     setDocked: (docked) => set({ isDocked: docked }),
+    setFooterCtaVisible: (visible) => set({ isFooterCtaVisible: visible }),
     setStep: (step) => set({ step }),
     setService: (service) => set((state) => ({
         selection: { ...state.selection, service }

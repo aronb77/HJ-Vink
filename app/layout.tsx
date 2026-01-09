@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, Inter, Playfair_Display } from "next/font/google";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
+import GlobalBottomCTA from "@/components/layout/GlobalBottomCTA";
 import FloatingWizardButton from "@/components/ui/FloatingWizardButton";
 import WizardModal from "@/components/wizard/WizardModal";
 import "./globals.css";
@@ -39,6 +40,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <GlobalBottomCTA />
         <Footer />
         <FloatingWizardButton />
         <WizardModal />

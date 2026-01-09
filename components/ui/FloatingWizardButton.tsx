@@ -6,7 +6,7 @@ import { Wand2 } from "lucide-react";
 import { useState } from "react";
 
 export default function FloatingWizardButton() {
-    const { openWizard, isDocked } = useWizardStore();
+    const { openWizard, isDocked, isFooterCtaVisible } = useWizardStore();
     const { scrollY } = useScroll();
     const [isScrolling, setIsScrolling] = useState(false);
 
@@ -14,19 +14,16 @@ export default function FloatingWizardButton() {
         setIsScrolling(true);
         // Debounce scroll stop
         const timer = setTimeout(() => setIsScrolling(false), 200);
-        // Cleanup timer not easy in this hook without ref, but basically we want to shrink on scroll.
-        // Actually, simple "isScrolling" state is enough if we had a proper debouncer.
-        // For now, let's just keep it simple: Expand on Hover.
     });
 
     return (
         <AnimatePresence>
-            {!isDocked && (
+            {!isDocked && !isFooterCtaVisible && (
                 <motion.button
-                    layoutId="wizard-trigger"
-                    initial={{ y: 100, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 100, opacity: 0 }}
+                    layoutId="wizard-trigger-button"
+                    initial={{ y: 0, opacity: 1, scale: 1 }}
+                    animate={{ y: 0, opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
                     onClick={openWizard}
                     className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-40 bg-concrete text-white rounded-full shadow-2xl flex items-center group overflow-hidden"
                     whileHover={{ scale: 1.05 }}
