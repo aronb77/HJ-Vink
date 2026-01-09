@@ -34,3 +34,10 @@ export default function ContactPage() {
         </main>
     );
 }
+
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Contact | H.J. Vink Afbouw",
+    description: "Neem direct contact op voor een vrijblijvende offerte of advies op maat. Gevestigd in Kampen, werkzaam in de hele regio.",
+};

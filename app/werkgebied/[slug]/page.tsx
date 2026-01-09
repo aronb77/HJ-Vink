@@ -7,7 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import RouteVisualizer from "@/components/seo/RouteVisualizer";
 
-import useWizardStore from "@/store/wizardStore"; // We'll need a client component wrapper for this interactive part or just Link to /offerte
+// We'll need a client component wrapper for this interactive part or just Link to /offerte
 import ProjectGallery from "@/components/projects/ProjectGallery"; // We'll need to adapt this or create a wrapper
 
 // We can't use hooks in server components directly for the store, so we'll use a client component for the Hero CTA or just a Link.

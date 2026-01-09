@@ -1,6 +1,13 @@
 import WallAnatomy from "@/components/werkwijze/WallAnatomy";
 import ReviewsSection from "@/components/home/ReviewsSection";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Werkwijze | H.J. Vink Afbouw",
+    description: "Eerlijk advies, heldere afspraken en vakmanschap. Ontdek hoe wij uw woning van ruw tot resultaat transformeren.",
+};
+
 export default function WerkwijzePage() {
     return (
         <main className="min-h-screen bg-plaster">

@@ -19,3 +19,10 @@ export default function ServicesPage() {
     </main>
   );
 }
+
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Diensten | H.J. Vink Afbouw",
+  description: "Ontdek onze diensten: van traditioneel stucwerk en spuitwerk tot exclusieve wandafwerking. Vakmanschap voor nieuwbouw en renovatie.",
+};

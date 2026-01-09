@@ -7,6 +7,8 @@ import FloatingWizardButton from "@/components/ui/FloatingWizardButton";
 import WizardModal from "@/components/wizard/WizardModal";
 import "./globals.css";
 
+import { siteConfig } from "@/config/site-config";
+
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
@@ -24,8 +26,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "H.J. Vink Afbouw | De Digitale Ambachtsman",
-  description: "Stuc- en schilderwerk waar je naar blijft kijken. Vakmanschap in regio Kampen.",
+  title: siteConfig.metadata.title,
+  description: siteConfig.metadata.description,
 };
 
 export default function RootLayout({
