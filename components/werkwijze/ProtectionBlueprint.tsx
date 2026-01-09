@@ -94,10 +94,10 @@ export default function ProtectionBlueprint() {
                 >
                     {/* Background Blueprint Image - Darkened */}
                     <Image
-                        src="https://images.unsplash.com/photo-1629904853716-64f95e201dba?q=80&w=2000&auto=format&fit=crop"
+                        src="/images/blueprint-floorplan.png"
                         alt="Technical Blueprint"
                         fill
-                        className="object-cover opacity-30 mix-blend-overlay"
+                        className="object-cover opacity-60 mix-blend-screen"
                     />
 
                     {/* Extra overlay for contrast */}
