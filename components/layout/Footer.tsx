@@ -1,6 +1,8 @@
 import { Facebook, Instagram, Linkedin, Phone } from "lucide-react";
 import Link from "next/link";
 
+import { siteConfig } from "@/config/site-config";
+
 export default function Footer() {
     const currentYear = new Date().getFullYear();
 
@@ -11,13 +13,13 @@ export default function Footer() {
 
                     {/* COLUMN 1: Brand */}
                     <div className="space-y-4">
-                        <h3 className="text-2xl font-manrope font-bold text-white tracking-tight">H.J. Vink Afbouw</h3>
+                        <h3 className="text-2xl font-manrope font-bold text-white tracking-tight">{siteConfig.company.name}</h3>
                         <p className="text-gray-400 font-inter text-sm leading-relaxed max-w-xs">
                             Kwaliteit in afbouw. Wij verzorgen stuc- en schilderwerk op topniveau in de regio Kampen en omstreken.
                         </p>
                         <div className="flex gap-4 pt-2">
-                            <SocialLink href="#" icon={<Facebook className="w-5 h-5" />} />
-                            <SocialLink href="#" icon={<Instagram className="w-5 h-5" />} />
+                            <SocialLink href={siteConfig.socials.facebook} icon={<Facebook className="w-5 h-5" />} />
+                            <SocialLink href={siteConfig.socials.instagram} icon={<Instagram className="w-5 h-5" />} />
                             <SocialLink href="#" icon={<Linkedin className="w-5 h-5" />} />
                         </div>
                     </div>
@@ -43,6 +45,10 @@ export default function Footer() {
                             <li><Link href="/werkgebied/dronten" className="hover:text-white transition-colors">Stucadoor Dronten</Link></li>
                             <li><Link href="/werkgebied/ijsselmuiden" className="hover:text-white transition-colors">Stucadoor IJsselmuiden</Link></li>
                             <li><Link href="/werkgebied/emmeloord" className="hover:text-white transition-colors">Stucadoor Emmeloord</Link></li>
+                            <li><Link href="/werkgebied/hattem" className="hover:text-white transition-colors">Stucadoor Hattem</Link></li>
+                            <li><Link href="/werkgebied/urk" className="hover:text-white transition-colors">Stucadoor Urk</Link></li>
+                            <li><Link href="/werkgebied/genemuiden" className="hover:text-white transition-colors">Stucadoor Genemuiden</Link></li>
+                            <li><Link href="/werkgebied/wezep" className="hover:text-white transition-colors">Stucadoor Wezep</Link></li>
                         </ul>
                     </div>
 
@@ -51,23 +57,23 @@ export default function Footer() {
                         <h4 className="text-gold font-bold uppercase text-sm tracking-wider mb-6">Contact</h4>
                         <ul className="space-y-4 font-inter text-sm text-gray-400">
                             <li>
-                                <p className="font-bold text-white mb-1">H.J. Vink Afbouw</p>
-                                <p>Molenstraat 12b (Voorbeeld)</p> // Todo: Ask for real address
-                                <p>8261 AB Kampen</p>
+                                <p className="font-bold text-white mb-1">{siteConfig.company.name}</p>
+                                <p>{siteConfig.contact.address}</p>
+                                <p>{siteConfig.contact.zip} {siteConfig.contact.city}</p>
                             </li>
                             <li>
-                                <a href="tel:0612345678" className="inline-flex items-center gap-2 text-white font-bold text-lg hover:text-gold transition-colors">
+                                <a href={siteConfig.contact.phoneLink} className="inline-flex items-center gap-2 text-white font-bold text-lg hover:text-gold transition-colors">
                                     <Phone className="w-5 h-5 text-gold" />
-                                    06 - 12 34 56 78
+                                    {siteConfig.contact.phone}
                                 </a>
                             </li>
                             <li>
-                                <a href="mailto:info@hjvinkafbouw.nl" className="hover:text-white transition-colors">
-                                    info@hjvinkafbouw.nl
+                                <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-white transition-colors">
+                                    {siteConfig.contact.email}
                                 </a>
                             </li>
                             <li>
-                                <p className="text-xs text-gray-600 mt-2">KVK: 12345678</p>
+                                <p className="text-xs text-gray-600 mt-2">KVK: {siteConfig.company.kvk}</p>
                             </li>
                         </ul>
                     </div>

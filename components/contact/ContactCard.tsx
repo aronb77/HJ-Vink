@@ -4,6 +4,8 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Copy, Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
 
+import { siteConfig } from "@/config/site-config";
+
 export default function ContactCard() {
     const x = useMotionValue(0);
     const y = useMotionValue(0);
@@ -36,7 +38,7 @@ export default function ContactCard() {
 
     const [copied, setCopied] = useState(false);
     const copyToClipboard = () => {
-        navigator.clipboard.writeText("info@hjvink.nl");
+        navigator.clipboard.writeText(siteConfig.contact.email);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
     };
@@ -71,7 +73,7 @@ export default function ContactCard() {
                 {/* Header */}
                 <div className="flex justify-between items-start">
                     <div>
-                        <h3 className="text-gold font-manrope font-bold text-lg tracking-wider uppercase">H.J. Vink</h3>
+                        <h3 className="text-gold font-manrope font-bold text-lg tracking-wider uppercase">{siteConfig.company.name}</h3>
                         <p className="text-white/40 text-xs tracking-widest uppercase">Afbouw & Stucadoors</p>
                     </div>
                     {/* Status Indicator */}
@@ -86,18 +88,18 @@ export default function ContactCard() {
 
                 {/* Center */}
                 <div className="flex-1 flex items-center justify-center">
-                    <h2 className="text-3xl text-white font-playfair italic">Henk Vink</h2>
+                    <h2 className="text-3xl text-white font-playfair italic">{siteConfig.company.owner}</h2>
                 </div>
 
                 {/* Footer Details */}
                 <div className="space-y-2 text-sm text-gray-300 font-inter">
                     <div className="flex items-center gap-3">
                         <Phone className="w-4 h-4 text-gold" />
-                        <span>+31 (0)6 1234 5678</span>
+                        <span>{siteConfig.contact.phone}</span>
                     </div>
                     <div className="flex items-center gap-3">
                         <Mail className="w-4 h-4 text-gold" />
-                        <span>info@hjvink.nl</span>
+                        <span>{siteConfig.contact.email}</span>
                     </div>
                 </div>
 

@@ -1,3 +1,4 @@
+import { siteConfig } from "@/config/site-config";
 import ContactCard from "@/components/contact/ContactCard";
 import ContactForm from "@/components/contact/ContactForm";
 import RegionMap from "@/components/contact/RegionMap";
@@ -15,8 +16,8 @@ export default function ContactPage() {
 
                         {/* Extra Info visible just below card on desktop */}
                         <div className="mt-8 hidden md:block text-sm text-concrete/40 font-inter">
-                            <p className="mb-2">KvK: 12345678</p>
-                            <p>BTW: NL123456789B01</p>
+                            <p className="mb-2">KvK: {siteConfig.company.kvk}</p>
+                            {/* <p>BTW: {siteConfig.company.btw}</p> */}
                         </div>
                     </div>
 
