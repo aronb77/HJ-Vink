@@ -11,28 +11,18 @@ export default function RegionMap() {
                     Actief in de regio
                 </h3>
 
-                {/* Abstract Map Visual */}
-                <div className="relative w-full max-w-2xl aspect-[2/1] bg-plaster rounded-3xl border border-concrete/5 overflow-hidden flex items-center justify-center">
-
-                    {/* Background Texture for Map Feel */}
-                    <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/cartographer.png')" }} />
-
-                    {/* The Radius Circle */}
-                    <motion.div
-                        animate={{ scale: [1, 1.05, 1], opacity: [0.5, 0.8, 0.5] }}
-                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                        className="w-64 h-64 md:w-96 md:h-96 rounded-full border border-gold/30 bg-gold/5 flex items-center justify-center relative backdrop-blur-[2px]"
-                    >
-                        {/* Center Dot (Kampen) */}
-                        <div className="w-4 h-4 bg-gold rounded-full shadow-lg z-10 relative">
-                            <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white px-2 py-1 rounded text-xs font-bold shadow text-concrete">Kampen</span>
-                        </div>
-                    </motion.div>
-
-                    {/* Simulated nearby cities (Dots) */}
-                    <div className="absolute w-2 h-2 bg-concrete/20 rounded-full top-[40%] right-[30%]" title="Zwolle" />
-                    <div className="absolute w-2 h-2 bg-concrete/20 rounded-full bottom-[45%] left-[35%]" title="Dronten" />
-
+                {/* Google Map */}
+                <div className="relative w-full max-w-4xl aspect-[16/9] md:aspect-[21/9] bg-concrete/5 rounded-3xl border border-concrete/10 overflow-hidden shadow-2xl">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.729059595562!2d5.9086827761921265!3d52.55395677981504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c87883393952dd%3A0x66f6874013110265!2sWadloper%202%2C%208265%20TV%20Kampen!5e0!3m2!1snl!2snl!4v1709825432000!5m2!1snl!2snl"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0, filter: "grayscale(1) contrast(1.2)" }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        className="absolute inset-0"
+                    />
                 </div>
 
                 <p className="mt-8 text-concrete/60 font-inter text-sm max-w-md">
