@@ -1,10 +1,10 @@
-import { getReviews } from "@/lib/google/getReviews";
+import { getAllReviews } from "@/lib/reviews/allReviews";
 import ReviewSlider from "./ReviewSlider";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 export default async function ReviewsSection() {
-    const reviews = await getReviews();
+    const reviews = await getAllReviews();
 
     return (
         <section className="bg-plaster py-24 relative overflow-hidden">

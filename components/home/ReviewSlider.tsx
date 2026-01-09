@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 import { Star, User } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
-import { GoogleReview } from "@/lib/google/getReviews";
+import { Review } from "@/lib/reviews/allReviews";
 
-export default function ReviewSlider({ reviews }: { reviews: GoogleReview[] }) {
+export default function ReviewSlider({ reviews }: { reviews: Review[] }) {
     const containerRef = useRef<HTMLDivElement>(null);
     const [width, setWidth] = useState(0);
 
@@ -44,7 +44,7 @@ export default function ReviewSlider({ reviews }: { reviews: GoogleReview[] }) {
     );
 }
 
-function ReviewCard({ review }: { review: GoogleReview }) {
+function ReviewCard({ review }: { review: Review }) {
     return (
         <motion.div
             className="min-w-[300px] md:min-w-[400px] bg-white rounded-xl shadow-lg p-6 flex flex-col h-full select-none border border-black/5"

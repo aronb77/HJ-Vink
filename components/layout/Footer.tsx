@@ -80,7 +80,7 @@ export default function Footer() {
                     <div className="flex gap-6">
                         <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
                         <Link href="/voorwaarden" className="hover:text-white transition-colors">Voorwaarden</Link>
-                        <span className="opacity-50">Website door [Jouw Naam]</span>
+                        <a href="https://vossendesign.nl" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors opacity-50 hover:opacity-100">Made by Vossen Design</a>
                     </div>
                 </div>
             </div>

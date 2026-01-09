@@ -2,7 +2,7 @@ import ServicesHero from "@/components/services/ServicesHero";
 import ServiceTiles from "@/components/services/ServiceTiles";
 import ProcessTimeline from "@/components/services/ProcessTimeline";
 import ReviewsSection from "@/components/home/ReviewsSection";
-import WizardDockingSection from "@/components/services/WizardDockingSection";
+
 
 export default function ServicesPage() {
   return (
@@ -15,7 +15,7 @@ export default function ServicesPage() {
         <ReviewsSection />
       </div>
 
-      <WizardDockingSection />
+
     </main>
   );
 }
