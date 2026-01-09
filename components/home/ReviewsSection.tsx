@@ -1,6 +1,7 @@
 import { getReviews } from "@/lib/google/getReviews";
 import ReviewSlider from "./ReviewSlider";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 export default async function ReviewsSection() {
     const reviews = await getReviews();
@@ -30,7 +31,18 @@ export default async function ReviewsSection() {
                 </a>
             </div>
 
-            <ReviewSlider reviews={reviews} />
+            {/* Slice here to only show top 8 newest on homepage */}
+            <ReviewSlider reviews={reviews.slice(0, 8)} />
+
+            <div className="flex justify-center mt-12 relative z-10">
+                <Link
+                    href="/reviews"
+                    className="inline-flex items-center gap-2 font-bold text-concrete border-b-2 border-gold pb-1 hover:text-gold transition-colors"
+                >
+                    Lees alle 100+ reviews
+                    <ArrowUpRight className="w-4 h-4" />
+                </Link>
+            </div>
         </section>
     );
 }
