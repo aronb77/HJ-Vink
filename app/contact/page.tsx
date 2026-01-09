@@ -12,7 +12,7 @@ export default function ContactPage() {
 
                     {/* LEFT: Sticky Contact Card */}
                     <div className="w-full md:w-1/3 md:sticky md:top-32">
-                        <ContactCard />
+                        {/* <ContactCard /> */}
 
                         {/* Extra Info visible just below card on desktop */}
                         <div className="mt-8 hidden md:block text-sm text-concrete/40 font-inter">
