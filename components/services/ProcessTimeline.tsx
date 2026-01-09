@@ -77,8 +77,8 @@ export default function ProcessTimeline() {
                                     <span className="text-gold">{step.icon}</span>
                                 </div>
 
-                                <h4 className="font-manrope font-bold text-lg text-concrete mb-1">{step.title}</h4>
-                                <p className="font-inter text-sm text-concrete/60">{step.description}</p>
+                                <h4 className="font-manrope font-bold text-lg text-concrete mb-1 max-w-[85%] mx-auto">{step.title}</h4>
+                                <p className="font-inter text-sm text-concrete/60 max-w-[80%] mx-auto">{step.description}</p>
                             </motion.div>
                         ))}
                     </div>
