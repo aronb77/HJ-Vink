@@ -29,7 +29,7 @@ export default function HeroScratchReveal() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="text-4xl md:text-7xl font-bold font-manrope text-concrete mb-6 drop-shadow-md"
+                        className="text-4xl md:text-7xl font-bold font-manrope text-concrete mb-6 drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]"
                     >
                         Van ruwbouw naar rust.
                     </motion.h1>
@@ -38,7 +38,7 @@ export default function HeroScratchReveal() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                        className="text-lg md:text-2xl text-concrete/80 font-inter mb-10 max-w-2xl mx-auto drop-shadow-md"
+                        className="text-lg md:text-2xl text-concrete/80 font-inter mb-10 max-w-2xl mx-auto drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]"
                     >
                         Stuc- en schilderwerk waar je naar blijft kijken. Vakmanschap in regio Kampen.
                     </motion.p>
