@@ -31,9 +31,7 @@ export default async function ReviewsSection() {
                         </div>
                         <div className="flex flex-col">
                             <span className="font-bold text-concrete text-lg leading-none">
-                                {reviews.length > 0
-                                    ? (reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length).toFixed(1)
-                                    : "5.0"}
+                                5.0
                                 <span className="text-concrete/40 font-normal ml-1">/ 5</span>
                             </span>
                             <span className="text-xs text-concrete/60 font-inter">
