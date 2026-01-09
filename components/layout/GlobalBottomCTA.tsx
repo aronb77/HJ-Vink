@@ -39,7 +39,7 @@ export default function GlobalBottomCTA() {
                             style={{ borderRadius: "9999px" }}
                             transition={{ type: "spring", stiffness: 300, damping: 30 }}
                         >
-                            Start de Wizard
+                            Bereken je prijs
                         </motion.button>
                     )}
                 </div>
