@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Logo({ className }: { className?: string }) {
     return (
         <Image
-            src="/logo.png"
+            src="/logo.svg"
             alt="H.J. Vink Afbouw"
             width={185}
             height={91}
