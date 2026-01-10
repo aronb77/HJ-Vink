@@ -3,10 +3,10 @@
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import MagneticLink from "./MagneticLink";
 import { Menu, X } from "lucide-react";
 import useWizardStore from "@/store/wizardStore"; // Direct access to wizard trigger
+import Logo from "@/components/ui/Logo";
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -43,15 +43,8 @@ export default function Navbar() {
                 <div className="container mx-auto px-4 flex items-center justify-between">
 
                     {/* 1. Logo */}
-                    <Link href="/" className="flex items-center gap-1 z-50 relative">
-                        <Image
-                            src="/logo.svg"
-                            alt="HJ Vink Afbouw Logo"
-                            width={200}
-                            height={50}
-                            className="h-10 md:h-12 w-auto object-contain"
-                            priority
-                        />
+                    <Link href="/" className="flex items-center z-50 relative">
+                        <Logo className="h-12 w-auto" />
                     </Link>
 
                     {/* 2. Desktop Navigation (Magnetic) */}
