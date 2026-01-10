@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Linkedin, Phone } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 import { siteConfig } from "@/config/site-config";
 
@@ -13,7 +14,15 @@ export default function Footer() {
 
                     {/* COLUMN 1: Brand */}
                     <div className="space-y-4">
-                        <h3 className="text-2xl font-manrope font-bold text-white tracking-tight">{siteConfig.company.name}</h3>
+                        <Link href="/" className="inline-block">
+                            <Image
+                                src="/logo-white.svg"
+                                alt={siteConfig.company.name}
+                                width={200}
+                                height={50}
+                                className="h-10 w-auto mb-2"
+                            />
+                        </Link>
                         <p className="text-gray-400 font-inter text-sm leading-relaxed max-w-xs">
                             Kwaliteit in afbouw. Wij verzorgen stuc- en schilderwerk op topniveau in de regio Kampen en omstreken.
                         </p>

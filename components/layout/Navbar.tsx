@@ -3,6 +3,7 @@
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import MagneticLink from "./MagneticLink";
 import { Menu, X } from "lucide-react";
 import useWizardStore from "@/store/wizardStore"; // Direct access to wizard trigger
@@ -43,8 +44,14 @@ export default function Navbar() {
 
                     {/* 1. Logo */}
                     <Link href="/" className="flex items-center gap-1 z-50 relative">
-                        <span className="font-manrope font-bold text-xl md:text-2xl text-concrete">HJ Vink</span>
-                        <span className="font-manrope font-light text-xl md:text-2xl text-concrete">Afbouw</span>
+                        <Image
+                            src="/logo.svg"
+                            alt="HJ Vink Afbouw Logo"
+                            width={200}
+                            height={50}
+                            className="h-10 md:h-12 w-auto object-contain"
+                            priority
+                        />
                     </Link>
 
                     {/* 2. Desktop Navigation (Magnetic) */}
